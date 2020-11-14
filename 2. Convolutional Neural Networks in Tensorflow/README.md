@@ -1,4 +1,4 @@
-(source)[https://www.coursera.org/learn/convolutional-neural-networks-tensorflow#syllabus]
+[source](https://www.coursera.org/learn/convolutional-neural-networks-tensorflow#syllabus)
 # WHAT YOU WILL LEARN
 
 Handle real-world image data
