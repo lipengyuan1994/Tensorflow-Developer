@@ -22,6 +22,9 @@ Week1 Exploring a Larger Dataset
 
 [Initial model](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Course%202%20-%20Part%202%20-%20Lesson%202%20-%20Notebook.ipynb#scrollTo=_qqNIbspb_NV)
  
- In this case, using the [RMSprop](https://wikipedia.org/wiki/Stochastic_gradient_descent#RMSProp) optimization algorithm is preferable to stochastic gradient descent (SGD), because RMSprop automates learning-rate tuning for us. (Other optimizers, such as Adam and Adagrad, also automatically adapt the learning rate during training, and would work equally well here.)
+From this notebook: (same as course_2_part_2_lesson_2_notebook )
+1. In this case, using the [RMSprop](https://wikipedia.org/wiki/Stochastic_gradient_descent#RMSProp) optimization algorithm is preferable to stochastic gradient descent (SGD), because RMSprop automates learning-rate tuning for us. (Other optimizers, such as Adam and Adagrad, also automatically adapt the learning rate during training, and would work equally well here.)
+2. Find the overfitting by plotting: 
+![](./resources/2020-11-14_14-10-43.png)
 
 
