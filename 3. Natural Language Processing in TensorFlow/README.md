@@ -33,3 +33,4 @@ week3 Sequence models
 
 
 ![](./tmp/2021-04-13_00-03-17.png)
+
