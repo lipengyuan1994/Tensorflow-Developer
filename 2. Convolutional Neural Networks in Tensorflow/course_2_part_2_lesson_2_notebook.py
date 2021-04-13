@@ -9,7 +9,7 @@ Original file is located at
 ##### Copyright 2019 The TensorFlow Authors.
 """
 
-#@title Licensed under the Apache License, Version 2.0 (the "License");
+# @title Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
@@ -80,19 +80,19 @@ validation_dogs_dir = os.path.join(validation_dir, 'dogs')
 
 """Now, let's see what the filenames look like in the `cats` and `dogs` `train` directories (file naming conventions are the same in the `validation` directory):"""
 
-train_cat_fnames = os.listdir( train_cats_dir )
-train_dog_fnames = os.listdir( train_dogs_dir )
+train_cat_fnames = os.listdir(train_cats_dir)
+train_dog_fnames = os.listdir(train_dogs_dir)
 
 print(train_cat_fnames[:10])
 print(train_dog_fnames[:10])
 
 """Let's find out the total number of cat and dog images in the `train` and `validation` directories:"""
 
-print('total training cat images :', len(os.listdir(      train_cats_dir ) ))
-print('total training dog images :', len(os.listdir(      train_dogs_dir ) ))
+print('total training cat images :', len(os.listdir(train_cats_dir)))
+print('total training dog images :', len(os.listdir(train_dogs_dir)))
 
-print('total validation cat images :', len(os.listdir( validation_cats_dir ) ))
-print('total validation dog images :', len(os.listdir( validation_dogs_dir ) ))
+print('total validation cat images :', len(os.listdir(validation_cats_dir)))
+print('total validation dog images :', len(os.listdir(validation_dogs_dir)))
 
 """For both cats and dogs, we have 1,000 training images and 500 validation images.
 
@@ -109,31 +109,31 @@ import matplotlib.pyplot as plt
 nrows = 4
 ncols = 4
 
-pic_index = 0 # Index for iterating over images
+pic_index = 0  # Index for iterating over images
 
 """Now, display a batch of 8 cat and 8 dog pictures. You can rerun the cell to see a fresh batch each time:"""
 
 # Set up matplotlib fig, and size it to fit 4x4 pics
 fig = plt.gcf()
-fig.set_size_inches(ncols*4, nrows*4)
+fig.set_size_inches(ncols * 4, nrows * 4)
 
-pic_index+=8
+pic_index += 8
 
-next_cat_pix = [os.path.join(train_cats_dir, fname) 
-                for fname in train_cat_fnames[ pic_index-8:pic_index] 
-               ]
+next_cat_pix = [os.path.join(train_cats_dir, fname)
+                for fname in train_cat_fnames[pic_index - 8:pic_index]
+                ]
 
-next_dog_pix = [os.path.join(train_dogs_dir, fname) 
-                for fname in train_dog_fnames[ pic_index-8:pic_index]
-               ]
+next_dog_pix = [os.path.join(train_dogs_dir, fname)
+                for fname in train_dog_fnames[pic_index - 8:pic_index]
+                ]
 
-for i, img_path in enumerate(next_cat_pix+next_dog_pix):
-  # Set up subplot; subplot indices start at 1
-  sp = plt.subplot(nrows, ncols, i + 1)
-  sp.axis('Off') # Don't show axes (or gridlines)
+for i, img_path in enumerate(next_cat_pix + next_dog_pix):
+    # Set up subplot; subplot indices start at 1
+    sp = plt.subplot(nrows, ncols, i + 1)
+    sp.axis('Off')  # Don't show axes (or gridlines)
 
-  img = mpimg.imread(img_path)
-  plt.imshow(img)
+    img = mpimg.imread(img_path)
+    plt.imshow(img)
 
 plt.show()
 
@@ -163,18 +163,18 @@ Note that because we are facing a two-class classification problem, i.e. a *bina
 
 model = tf.keras.models.Sequential([
     # Note the input shape is the desired size of the image 150x150 with 3 bytes color
-    tf.keras.layers.Conv2D(16, (3,3), activation='relu', input_shape=(150, 150, 3)),
-    tf.keras.layers.MaxPooling2D(2,2),
-    tf.keras.layers.Conv2D(32, (3,3), activation='relu'),
-    tf.keras.layers.MaxPooling2D(2,2), 
-    tf.keras.layers.Conv2D(64, (3,3), activation='relu'), 
-    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Conv2D(16, (3, 3), activation='relu', input_shape=(150, 150, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2, 2),
     # Flatten the results to feed into a DNN
-    tf.keras.layers.Flatten(), 
+    tf.keras.layers.Flatten(),
     # 512 neuron hidden layer
-    tf.keras.layers.Dense(512, activation='relu'), 
+    tf.keras.layers.Dense(512, activation='relu'),
     # Only 1 output neuron. It will contain a value from 0-1 where 0 for 1 class ('cats') and 1 for the other ('dogs')
-    tf.keras.layers.Dense(1, activation='sigmoid')  
+    tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
 """The model.summary() method call prints a summary of the NN"""
@@ -192,7 +192,7 @@ from tensorflow.keras.optimizers import RMSprop
 
 model.compile(optimizer=RMSprop(lr=0.001),
               loss='binary_crossentropy',
-              metrics = ['accuracy'])
+              metrics=['accuracy'])
 
 """### Data Preprocessing
 
@@ -206,8 +206,8 @@ In Keras this can be done via the `keras.preprocessing.image.ImageDataGenerator`
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # All images will be rescaled by 1./255.
-train_datagen = ImageDataGenerator( rescale = 1.0/255. )
-test_datagen  = ImageDataGenerator( rescale = 1.0/255. )
+train_datagen = ImageDataGenerator(rescale=1.0 / 255.)
+test_datagen = ImageDataGenerator(rescale=1.0 / 255.)
 
 # --------------------
 # Flow training images in batches of 20 using train_datagen generator
@@ -215,14 +215,14 @@ test_datagen  = ImageDataGenerator( rescale = 1.0/255. )
 train_generator = train_datagen.flow_from_directory(train_dir,
                                                     batch_size=20,
                                                     class_mode='binary',
-                                                    target_size=(150, 150))     
+                                                    target_size=(150, 150))
 # --------------------
 # Flow validation images in batches of 20 using test_datagen generator
 # --------------------
-validation_generator =  test_datagen.flow_from_directory(validation_dir,
-                                                         batch_size=20,
-                                                         class_mode  = 'binary',
-                                                         target_size = (150, 150))
+validation_generator = test_datagen.flow_from_directory(validation_dir,
+                                                        batch_size=20,
+                                                        class_mode='binary',
+                                                        target_size=(150, 150))
 
 """### Training
 Let's train on all 2,000 images available, for 15 epochs, and validate on all 1,000 test images. (This may take a few minutes to run.)
@@ -235,12 +235,11 @@ The Loss and Accuracy are a great indication of progress of training. It's makin
 """
 
 history = model.fit(train_generator,
-                              validation_data=validation_generator,
-                              steps_per_epoch=100,
-                              epochs=15,
-                              validation_steps=50,
-                              verbose=2)
-
+                    validation_data=validation_generator,
+                    steps_per_epoch=100,
+                    epochs=15,
+                    validation_steps=50,
+                    verbose=2)
 
 exit()
 
@@ -254,27 +253,27 @@ import numpy as np
 from google.colab import files
 from keras.preprocessing import image
 
-uploaded=files.upload()
+uploaded = files.upload()
 
 for fn in uploaded.keys():
- 
-  # predicting images
-  path='/content/' + fn
-  img=image.load_img(path, target_size=(150, 150))
-  
-  x=image.img_to_array(img)
-  x=np.expand_dims(x, axis=0)
-  images = np.vstack([x])
-  
-  classes = model.predict(images, batch_size=10)
-  
-  print(classes[0])
-  
-  if classes[0]>0:
-    print(fn + " is a dog")
-    
-  else:
-    print(fn + " is a cat")
+
+    # predicting images
+    path = '/content/' + fn
+    img = image.load_img(path, target_size=(150, 150))
+
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    images = np.vstack([x])
+
+    classes = model.predict(images, batch_size=10)
+
+    print(classes[0])
+
+    if classes[0] > 0:
+        print(fn + " is a dog")
+
+    else:
+        print(fn + " is a cat")
 
 """### Visualizing Intermediate Representations
 
@@ -285,15 +284,15 @@ Let's pick a random cat or dog image from the training set, and then generate a 
 
 import numpy as np
 import random
-from   tensorflow.keras.preprocessing.image import img_to_array, load_img
+from tensorflow.keras.preprocessing.image import img_to_array, load_img
 
 # Let's define a new Model that will take an image as input, and will output
 # intermediate representations for all layers in the previous model after
 # the first.
 successive_outputs = [layer.output for layer in model.layers[1:]]
 
-#visualization_model = Model(img_input, successive_outputs)
-visualization_model = tf.keras.models.Model(inputs = model.input, outputs = successive_outputs)
+# visualization_model = Model(img_input, successive_outputs)
+visualization_model = tf.keras.models.Model(inputs=model.input, outputs=successive_outputs)
 
 # Let's prepare a random input image of a cat or dog from the training set.
 cat_img_files = [os.path.join(train_cats_dir, f) for f in train_cat_fnames]
@@ -302,8 +301,8 @@ dog_img_files = [os.path.join(train_dogs_dir, f) for f in train_dog_fnames]
 img_path = random.choice(cat_img_files + dog_img_files)
 img = load_img(img_path, target_size=(150, 150))  # this is a PIL image
 
-x   = img_to_array(img)                           # Numpy array with shape (150, 150, 3)
-x   = x.reshape((1,) + x.shape)                   # Numpy array with shape (1, 150, 150, 3)
+x = img_to_array(img)  # Numpy array with shape (150, 150, 3)
+x = x.reshape((1,) + x.shape)  # Numpy array with shape (1, 150, 150, 3)
 
 # Rescale by 1/255
 x /= 255.0
@@ -319,39 +318,39 @@ layer_names = [layer.name for layer in model.layers]
 # Now let's display our representations
 # -----------------------------------------------------------------------
 for layer_name, feature_map in zip(layer_names, successive_feature_maps):
-  
-  if len(feature_map.shape) == 4:
-    
-    #-------------------------------------------
-    # Just do this for the conv / maxpool layers, not the fully-connected layers
-    #-------------------------------------------
-    n_features = feature_map.shape[-1]  # number of features in the feature map
-    size       = feature_map.shape[ 1]  # feature map shape (1, size, size, n_features)
-    
-    # We will tile our images in this matrix
-    display_grid = np.zeros((size, size * n_features))
-    
-    #-------------------------------------------------
-    # Postprocess the feature to be visually palatable
-    #-------------------------------------------------
-    for i in range(n_features):
-      x  = feature_map[0, :, :, i]
-      x -= x.mean()
-      x /= x.std ()
-      x *=  64
-      x += 128
-      x  = np.clip(x, 0, 255).astype('uint8')
-      display_grid[:, i * size : (i + 1) * size] = x # Tile each filter into a horizontal grid
 
-    #-----------------
-    # Display the grid
-    #-----------------
+    if len(feature_map.shape) == 4:
 
-    scale = 20. / n_features
-    plt.figure( figsize=(scale * n_features, scale) )
-    plt.title ( layer_name )
-    plt.grid  ( False )
-    plt.imshow( display_grid, aspect='auto', cmap='viridis' )
+        # -------------------------------------------
+        # Just do this for the conv / maxpool layers, not the fully-connected layers
+        # -------------------------------------------
+        n_features = feature_map.shape[-1]  # number of features in the feature map
+        size = feature_map.shape[1]  # feature map shape (1, size, size, n_features)
+
+        # We will tile our images in this matrix
+        display_grid = np.zeros((size, size * n_features))
+
+        # -------------------------------------------------
+        # Postprocess the feature to be visually palatable
+        # -------------------------------------------------
+        for i in range(n_features):
+            x = feature_map[0, :, :, i]
+            x -= x.mean()
+            x /= x.std()
+            x *= 64
+            x += 128
+            x = np.clip(x, 0, 255).astype('uint8')
+            display_grid[:, i * size: (i + 1) * size] = x  # Tile each filter into a horizontal grid
+
+        # -----------------
+        # Display the grid
+        # -----------------
+
+        scale = 20. / n_features
+        plt.figure(figsize=(scale * n_features, scale))
+        plt.title(layer_name)
+        plt.grid(False)
+        plt.imshow(display_grid, aspect='auto', cmap='viridis')
 
 """As you can see we go from the raw pixels of the images to increasingly abstract and compact representations. The representations downstream start highlighting what the network pays attention to, and they show fewer and fewer features being "activated"; most are set to zero. This is called "sparsity." Representation sparsity is a key feature of deep learning.
 
@@ -363,31 +362,31 @@ These representations carry increasingly less information about the original pix
 Let's plot the training/validation accuracy and loss as collected during training:
 """
 
-#-----------------------------------------------------------
+# -----------------------------------------------------------
 # Retrieve a list of list results on training and test data
 # sets for each training epoch
-#-----------------------------------------------------------
-acc      = history.history[     'accuracy' ]
-val_acc  = history.history[ 'val_accuracy' ]
-loss     = history.history[    'loss' ]
-val_loss = history.history['val_loss' ]
+# -----------------------------------------------------------
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
 
-epochs   = range(len(acc)) # Get number of epochs
+epochs = range(len(acc))  # Get number of epochs
 
-#------------------------------------------------
+# ------------------------------------------------
 # Plot training and validation accuracy per epoch
-#------------------------------------------------
-plt.plot  ( epochs,     acc )
-plt.plot  ( epochs, val_acc )
-plt.title ('Training and validation accuracy')
+# ------------------------------------------------
+plt.plot(epochs, acc)
+plt.plot(epochs, val_acc)
+plt.title('Training and validation accuracy')
 plt.figure()
 
-#------------------------------------------------
+# ------------------------------------------------
 # Plot training and validation loss per epoch
-#------------------------------------------------
-plt.plot  ( epochs,     loss )
-plt.plot  ( epochs, val_loss )
-plt.title ('Training and validation loss'   )
+# ------------------------------------------------
+plt.plot(epochs, loss)
+plt.plot(epochs, val_loss)
+plt.title('Training and validation loss')
 
 """As you can see, we are **overfitting** like it's getting out of fashion. Our training accuracy (in blue) gets close to 100% (!) while our validation accuracy (in green) stalls as 70%. Our validation loss reaches its minimum after only five epochs.
 
@@ -404,6 +403,6 @@ Before running the next exercise, run the following cell to terminate the kernel
 
 import os, signal
 
-os.kill(     os.getpid() , 
-         signal.SIGKILL
-       )
+os.kill(os.getpid(),
+        signal.SIGKILL
+        )
