@@ -45,10 +45,17 @@ week3 Sequence models
   
   * [Sarcasm with 1D Convolutional Layer](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/TensorFlow%20In%20Practice/Course%203%20-%20NLP/Course%203%20-%20Week%203%20-%20Lesson%202c.ipynb#scrollTo=g9DC6dmLF8DC)
   
-
-[Exploring overfitting in NLP](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/TensorFlow%20In%20Practice/Course%203%20-%20NLP/NLP%20Course%20-%20Week%203%20Exercise%20Answer.ipynb#scrollTo=qxju4ItJKO8F)
+* Weekly Exercise- Exploring overfitting in NLP
+  * [Exploring overfitting in NLP](https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/TensorFlow%20In%20Practice/Course%203%20-%20NLP/NLP%20Course%20-%20Week%203%20Exercise%20Answer.ipynb#scrollTo=qxju4ItJKO8F)
 ---
 ![](./tmp/2021-04-13_00-03-17.png)
 
 ---
 ![](./tmp/2021-04-13_08-29-16.png)
+
+
+
+
+week4 Sequence models and literature
+---
+
