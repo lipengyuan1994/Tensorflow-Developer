@@ -26,8 +26,6 @@ Week1 Sequences and Prediction
     * ![](./tmp/non-stationary_time_series.png)
     * ![](./tmp/non-stationary-2.png)
     * ![](./tmp/forecast.png)
-    
-
 
 
 * Train Validation and test sets
