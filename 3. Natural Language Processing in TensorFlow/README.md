@@ -59,3 +59,6 @@ week3 Sequence models
 week4 Sequence models and literature
 ---
 
+* predict the next word is a classification task
+* [write poem using LSTM ](./5.%20week_4_lesson_2_(write%20a%20poem).py)
+
