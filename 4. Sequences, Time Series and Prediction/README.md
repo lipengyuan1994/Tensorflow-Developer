@@ -42,6 +42,11 @@ Week1 Sequences and Prediction
     * Smoothing Both Past and Present Values
     * ![](./tmp/2021-04-21_21-52-07.png)
 
+-----
+
+* [Code: Prediction without Machine Learning](./1.%20Naive%20Forecast.py)
+* [predict synthetic data](https://colab.research.google.com/gist/lipengyuan1994/976af8fc69a1fb0a0d0e02e5a1b218b4/week-1-exercise-answer.ipynb)
+
 
 ## Sequence bias
 
