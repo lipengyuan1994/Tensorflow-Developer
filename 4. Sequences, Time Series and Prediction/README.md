@@ -19,7 +19,7 @@ Week1 Sequences and Prediction
 * seasonality (shopping, sport)
 * white noise
 *  auto correlated time series. Namely it correlates with a delayed copy of itself often called a lag
-    ![](./tmp/2021-04-20_08-16-15.png)
+    * ![](./tmp/2021-04-20_08-16-15.png)
     
 * real-life time series
     * ![./tmp/TSAN.png](./tmp/TSAN.png)
@@ -30,8 +30,19 @@ Week1 Sequences and Prediction
 
 
 
+* Train Validation and test sets
+    * ![](./tmp/2021-04-21_21-27-13.png)
 
+* Metrics for evaluating performance
+    * ![](./tmp/2021-04-21_21-37-08.png)
 
+* Moving average and differencing
+    * ![](./tmp/2021-04-21_21-38-43.png)
+    * Moving average on Differenced Time Series
+    * ![](./tmp/2021-04-21_21-39-49.png)
+    * ![](./tmp/2021-04-21_21-40-04.png)
+    * Smoothing Both Past and Present Values
+    * ![](./tmp/2021-04-21_21-52-07.png)
 
 
 ## Sequence bias
