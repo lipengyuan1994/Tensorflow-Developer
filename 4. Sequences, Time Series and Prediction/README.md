@@ -75,7 +75,7 @@ Week4 Real-world time series data
 * [LSTM + batch size](./10.LSTM-(batch).py)
 * [Sun spot prediction (conv+lstm+dnn)](./11.SunSpot_conv_lstm.py)
     * [gist](https://colab.research.google.com/gist/lipengyuan1994/90978ac4fd27d1c345da0b316717ccdb/s-p-week-4-lesson-5.ipynb)
-    
+    * [gist_normalized_mae<0.05](https://colab.research.google.com/gist/lipengyuan1994/2d6432a296b6525fd17c4afdf3aeca64/s-p-week-4-lesson-5.ipynb#scrollTo=PrktQX3hKYex)
 
 
 

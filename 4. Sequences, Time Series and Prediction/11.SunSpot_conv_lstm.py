@@ -193,3 +193,4 @@ plt.legend(["Loss"])
 plt.figure()
 
 print(rnn_forecast)
+# NGMwOGY3MjE
