@@ -48,6 +48,37 @@ Week1 Sequences and Prediction
 * [predict synthetic data](https://colab.research.google.com/gist/lipengyuan1994/976af8fc69a1fb0a0d0e02e5a1b218b4/week-1-exercise-answer.ipynb)
 
 
+Week2 Deep Neural Networks for Time Series
+---
+* [preparing features and label](./3.Preparing%20features%20and%20labels.py)
+* [single layer nn](./4.Single%20layer%20neural%20network%20notebook.py)
+    * [gist](https://colab.research.google.com/gist/lipengyuan1994/a5cdc38331123e8535ed13259ea8e907/s-p-week-2-lesson-3.ipynb)
+* [Deep Neural network](./5.DeepNeuralNetwork.py)
+* [predict with DNN](./6.Predict%20with%20DNN.py)
+    *  [gist](https://colab.research.google.com/gist/lipengyuan1994/3f67d1f7f9b62b3fc664bee877b02770/s-p_week_2_exercise_answer.ipynb)
+    
+
+
+Week3 Recurrent Neural Networks for time series
+---
+* [RNN](./7.RNN.py)
+    * [gist](https://colab.research.google.com/gist/lipengyuan1994/72bf570c0146074147d18eea88e36764/s-p-week-3-lesson-2-rnn.ipynb)
+* [LSTM](./8.%20LSTM.py)
+    * [gist](https://colab.research.google.com/gist/lipengyuan1994/b99890112a3a0f62d033727653a20629/s-p-week-3-lesson-4-lstm.ipynb)
+*  take a synthetic data set and write the code to pick the learning rate and then train on it to get an MAE of < 3 
+   * [MAE](./9.%20MAE.py)
+   * [gist](https://colab.research.google.com/gist/lipengyuan1994/c0c0aa79f422996b968d527a399b0378/s-p-week-3-exercise-answer.ipynb)
+    
+
+Week4 Real-world time series data
+---
+* [LSTM + batch size](./10.LSTM-(batch).py)
+* [Sun spot prediction (conv+lstm+dnn)](./11.SunSpot_conv_lstm.py)
+    * [gist](https://colab.research.google.com/gist/lipengyuan1994/90978ac4fd27d1c345da0b316717ccdb/s-p-week-4-lesson-5.ipynb)
+    
+
+
+
 ## Sequence bias
 
 Sequence bias is when the order of things can impact the selection of things. For example, if I were to ask you your favorite TV show, and listed "Game of Thrones", "Killing Eve", "Travellers" and "Doctor Who" in that order, you're probably more likely to select 'Game of Thrones' as you are familiar with it, and it's the first thing you see. Even if it is equal to the other TV shows. So, when training data in a dataset, we don't want the sequence to impact the training in a similar way, so it's good to shuffle them up.
